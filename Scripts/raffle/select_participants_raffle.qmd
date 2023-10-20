@@ -1,0 +1,97 @@
+---
+title: "Select participants for raffle"
+format: html
+---
+
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(here)
+library(janitor)
+set.seed(8)
+```
+
+## Read data
+
+```{r}
+data <- read_csv(
+    here('Data', 'Raw', 'data_raffle.csv')
+) |> clean_names()
+
+head(data)
+```
+
+## Define raffle function
+
+```{r}
+select_raffle <- function(uni, n_awards){
+    sample <- data |> 
+        filter(universidad_en_la_que_cursas_estudios == uni) 
+        
+    awards <- sample |> 
+        sample_n(n_awards) |> 
+        select(record_id, universidad_en_la_que_cursas_estudios)
+
+    awards
+}
+```
+
+## Raffles
+
+### UPR 
+
+```{r}
+awards_upr <- select_raffle('UPR', 2)
+awards_upr
+```
+
+### PHSU
+
+```{r}
+awards_phsu <- select_raffle("Ponce Health Sciences University", 2)
+awards_phsu
+```
+
+### General
+
+#### Select uni
+```{r}
+unis <- c("UPR", "Ponce Health Sciences University")
+uni <- sample(unis, 1)
+```
+
+#### Remove participants with awards
+
+```{r}
+awarded <- c(deframe(awards_upr), deframe(awards_phsu))
+data |> 
+    filter(!(record_id %in% awarded))
+```
+
+#### Select award
+
+The seed is changed here because the original seed made participant 9 be selected twice.
+
+```{r}
+set.seed(3)
+award_general <- select_raffle(uni, 1)
+award_general
+```
+
+## Integrate awards
+
+```{r}
+awards_final <- rbind(awards_upr, awards_phsu, award_general)
+awards_final
+```
+
+## Save to file
+
+```{r}
+awards_final |>
+    write_csv(
+        here("Results", "raffle_awards.csv")
+    )
+```
