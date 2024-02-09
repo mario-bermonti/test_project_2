@@ -1,5 +1,5 @@
 ---
-title: "Prepare spelling data for analyses"
+title: "Prepare paper spelling data for analyses"
 format: html
 ---
 
