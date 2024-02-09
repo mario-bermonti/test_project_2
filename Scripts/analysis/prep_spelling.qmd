@@ -1,0 +1,85 @@
+---
+title: "Prepare spelling data for analyses"
+format: html
+---
+
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+library(rio)
+
+path_data <- here('Data', 'Raw')
+```
+
+## Trial level
+### Read data
+
+```{r}
+data_paper <- import(
+    here(
+        path_data, 'data_spelling_paper.xlsx'
+    )
+)
+
+head(data_paper)
+str(data_paper)
+```
+
+### Clean variables
+
+```{r}
+data_paper <- clean_names(data_paper)
+str(data_paper)
+```
+
+### Pivot data
+
+```{r}
+data_paper <- data_paper |>
+    pivot_longer(
+        -participant_id,
+        names_to = 'stim',
+        values_to = 'resp'
+    )
+head(data_paper)
+```
+
+### Score trials
+
+```{r}
+data_paper <- data_paper |>
+    mutate(correctness = as.integer(data_paper$stim == data_paper$resp))
+
+head(data_paper) 
+```
+
+### Save data
+
+```{r}
+data_paper |> 
+    export(
+        here('Data', "Processed", 'data_paper_trial_level.csv')
+    )
+```
+
+## Participant level
+
+### Aggregate data
+```{r}
+data_paper_participant <- data_paper |>
+    group_by(participant_id) |> 
+    summarise(total_score = sum(correctness))
+
+head(data_paper_participant)
+```
+
+### Save data
+
+```{r}
+data_paper_participant |> 
+    export(
+        here("Data", "Processed", "data_paper_participant_level.csv")
+    )
+```
