@@ -1,3 +1,7 @@
-*
-!Scripts/*
+# ignore everyting
+/*
+
+# exceptions
+!/Scripts/
+!/Scripts/**
 !.gitignore
