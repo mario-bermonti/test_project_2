@@ -1,0 +1,57 @@
+---
+title: "Analysis plan"
+format: html
+---
+
+## General
+1. Create folder structure
+2. Compile all data into "original folder" that is immutable
+
+## Spelling data
+
+### Preprocess data
+1. Integrate data
+2. Convert data to CSV format, if needed
+3. Clean variable names
+4. Structure data as needed
+
+### Process data
+1. Score trials
+2. Aggregate data for each participant
+3. Check data there are no errors
+
+### Analyze data
+2. EDA
+   - Univariate
+     + histogram
+     + Central tendency
+     + Dispersion
+   - Bivariate
+     + box plot with mean
+     + violin plot
+     + Bland-Altman plot
+     + Central tendency and dispersion by group
+3. Inferential
+    - Paired samples t-test
+
+## Evaluation of pilot study
+### Processing
+- Organize data
+- Code simple open-ended data (e.g., program concentration)
+- Code complex open-ended data (i.e., long responses)
+
+### Analysis
+- Analyze data (i.e., interpret)
+
+## Demographic data
+### Preprocess data
+1. Integrate data
+2. Convert data to CSV format, if needed
+3. Clean variable names
+4. Structure data as needed
+
+### Analysis
+- Central tendency
+- Dispersion
+- Frequency tables
+- Visualizations
