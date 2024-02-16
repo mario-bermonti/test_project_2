@@ -14,7 +14,7 @@ path_data <- here('Data', 'Raw', 'paper spelling')
 ```
 
 ## Trial level
-### Read data
+## Read data
 
 ```{r}
 data_paper <- import(
@@ -70,7 +70,7 @@ data_paper |>
 ```{r}
 data_paper_participant <- data_paper |>
     group_by(participant_id) |> 
-    summarise(total_score = sum(correctness))
+    summarise(total_correctness = sum(correctness))
 
 head(data_paper_participant)
 ```
