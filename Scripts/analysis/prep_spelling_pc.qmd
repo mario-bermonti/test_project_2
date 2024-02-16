@@ -29,4 +29,26 @@ data <- csv_files |>
 head(data)
 ```
 
+### Initial inspection
+
+Structure of the data
+```{r}
+data |>
+    str()
+```
+
+n = 10
+
+Unique participant ids 
+```{r}
+length(unique(data$participant_id))
+
+unique(data$participant_id)
+```
+
+session_number should be 1 for each participant 
+
+```{r}
+unique(data$session_number)
+```
 ```
