@@ -91,4 +91,10 @@ Check correct
 data |>
     filter(correctness == 1)
 ```
+
+### Save data
+
+```{r}
+path <- here(path_processed_data, "data_pc_trial_level.csv")
+write_csv(data, path)
 ```
