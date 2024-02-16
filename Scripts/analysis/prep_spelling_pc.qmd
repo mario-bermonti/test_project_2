@@ -61,4 +61,34 @@ data <- data |>
 str(data)
 ```
 
+### Score trials
+
+```{r}
+data <- data |>
+    mutate(
+        correctness = stim == resp,
+        correctness = if_else(
+            correctness == TRUE,
+            1,
+            0
+        )
+    ) 
+
+head(data)
+```
+
+Let's check trials were correctly scored
+
+Check incorrect
+```{r}
+data |>
+    filter(correctness == 0)
+```
+
+Check correct
+
+```{r}
+data |>
+    filter(correctness == 1)
+```
 ```
