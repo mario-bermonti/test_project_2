@@ -1,7 +1,12 @@
 # ignore everyting
 /*
 
+
 # exceptions
 !/Scripts/
 !/Scripts/**
+!/Scripts/**
 !.gitignore
+
+*.html
+*.r
