@@ -7,6 +7,7 @@ format: html
 ```{r}
 library(tidyverse)
 library(here)
+library(easystats)
 ```
 
 ## Define paths
@@ -105,6 +106,27 @@ data |>
 ```{r}
 path <- here(path_processed_data, "data_pc_trial_level.csv")
 write_csv(data, path)
+```
+
+## Participant level 
+### Aggregate data
+
+```{r}
+data <- data |>
+    group_by(participant_id) |>
+    summarise(total_correctness = sum(correctness))
+
+head(data)
+```
+
+### Check aggregated data
+
+- min and max seem OK
+- no missing data
+  
+```{r}
+data |>
+    describe_distribution(total_correctness)
 ```
 write_csv(data, path)
 ```
