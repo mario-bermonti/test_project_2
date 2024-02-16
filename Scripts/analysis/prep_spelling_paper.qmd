@@ -10,7 +10,7 @@ library(janitor)
 library(here)
 library(rio)
 
-path_data <- here('Data', 'Raw')
+path_data <- here('Data', 'Raw', 'paper spelling')
 ```
 
 ## Trial level
