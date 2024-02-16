@@ -15,4 +15,18 @@ path_raw_data <- here("Data", "Raw", "mspelling")
 path_processed_data <- here("Data", "Processed")
 ```
 
+## Trial level
+### Read data
+
+The data was exported from sqlite to csv using the [vscode extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite), but was not altered in any way.
+
+```{r}
+csv_files <- list.files(path_raw_data, pattern = "\\.csv$", full.names = TRUE)
+
+data <- csv_files |>
+    map_df(read_csv)
+
+head(data)
+```
+
 ```
