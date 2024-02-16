@@ -3,3 +3,16 @@ title: "Prepare pc spelling data for analyses"
 format: html
 ---
 
+## Setup
+```{r}
+library(tidyverse)
+library(here)
+```
+
+## Define paths
+```{r}
+path_raw_data <- here("Data", "Raw", "mspelling")
+path_processed_data <- here("Data", "Processed")
+```
+
+```
