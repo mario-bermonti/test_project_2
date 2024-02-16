@@ -128,5 +128,11 @@ head(data)
 data |>
     describe_distribution(total_correctness)
 ```
+
+### Save data
+
+```{r}
+path <- here(path_processed_data, 'data_pc_participant_level.csv')
+
 write_csv(data, path)
 ```
