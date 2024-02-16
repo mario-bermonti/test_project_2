@@ -51,4 +51,14 @@ session_number should be 1 for each participant
 ```{r}
 unique(data$session_number)
 ```
+
+### Remove columns we don't need
+
+```{r}
+data <- data |>
+    select(-id, -session_number)
+
+str(data)
+```
+
 ```
