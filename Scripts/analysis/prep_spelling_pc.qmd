@@ -52,6 +52,14 @@ session_number should be 1 for each participant
 unique(data$session_number)
 ```
 
+Let's check number of observation per participant. There should be 24 observations per participant.
+
+```{r}
+data |>
+    group_by(participant_id) |>
+        count(participant_id)
+```
+
 ### Remove columns we don't need
 
 ```{r}
