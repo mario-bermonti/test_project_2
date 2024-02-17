@@ -1,0 +1,29 @@
+---
+title: "Analysis - Technology effects on spelling skill measurement"
+format: html
+---
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+path_data <- here("Data", "Processed")
+```
+
+## Read data
+
+```{r}
+data_paper <- read_csv(here(path_data, "data_paper_participant_level.csv"))
+head(data_paper)
+```
+
+```{r}
+data_tech <- read_csv(here(path_data, "data_pc_participant_level.csv"))
+head(data_tech)
+```
+
+## Merge data
