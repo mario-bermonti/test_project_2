@@ -27,3 +27,39 @@ head(data_tech)
 ```
 
 ## Merge data
+
+### Adds key to id condition
+
+We add a column identifying the modality of the spelling measure to 
+differentiate the condition after merging.
+
+```{r}
+data_paper <- data_paper |>
+    mutate(condition = "paper")
+str(data_paper)
+
+data_tech <- data_tech |>
+    mutate(condition = "tech")
+str(data_tech)
+```
+
+### merge data
+
+```{r}
+data_spelling <- bind_rows(data_paper, data_tech)
+data_spelling
+```
+
+### Check data
+
+Should have 2 obs per participant
+```{r}
+data_spelling |>
+    count(participant_id)
+```
+
+Each participant should have 1 observation per condition
+```{r}
+data_spelling |>
+    count(participant_id, condition)
+```
