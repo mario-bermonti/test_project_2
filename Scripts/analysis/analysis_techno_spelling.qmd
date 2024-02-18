@@ -106,7 +106,7 @@ Both conditions seems about equally skewed toward higher scores.
 ```{r}
 data_spelling |>
     ggplot(aes(x = total_correctness, fill = condition)) +
-    geom_histogram(binwidth = 1)
+    geom_histogram(binwidth = 1, position = "dodge")
 ```
 
 ```{r}
