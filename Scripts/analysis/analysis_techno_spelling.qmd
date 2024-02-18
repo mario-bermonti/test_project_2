@@ -90,10 +90,10 @@ data_spelling |>
 
 ## Analysis
 ### EDA
-
 #### Univariate
-
 ##### All data
+
+The data seems a little skewed toward higher scores.
 ```{r}
 data_spelling |>
     ggplot(aes(x = total_correctness)) +
@@ -101,6 +101,8 @@ data_spelling |>
 ```
 
 ##### Subdivide by condition
+
+Both conditions seems about equally skewed toward higher scores.
 ```{r}
 data_spelling |>
     ggplot(aes(x = total_correctness, fill = condition)) +
