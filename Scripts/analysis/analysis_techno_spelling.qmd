@@ -99,7 +99,29 @@ data_spelling |>
 
 ## Analysis
 ### EDA
+
 #### Univariate
+
+##### All data
+```{r}
+data_spelling |>
+    viz_hist()
+```
+
+##### Tech condition
+```{r}
+data_spelling |>
+    filter(condition == 'tech') |>
+    viz_hist()
+```
+
+##### paper condition
+```{r}
+data_spelling |>
+    filter(condition == 'paper') |>
+    ggplot(aes(x = total_correctness)) + 
+    geom_histogram()
+```
 #### Bivariate
 ### Inferential
 
