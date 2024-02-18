@@ -74,3 +74,13 @@ No missing data
 data_spelling |>
     summarise_all(~ sum(is.na(.)))
 ```
+
+## Convert variables to correct type
+
+```{r}
+data_spelling <- data_spelling |>
+    mutate(condition = factor(condition))
+
+data_spelling |>
+    str()
+```
