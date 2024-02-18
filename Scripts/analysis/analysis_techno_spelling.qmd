@@ -13,15 +13,6 @@ library(easystats)
 
 ## Reusable functions
 
-### Viz histogram
-```{r}
-viz_hist <- function(df) {
-    df |>
-        ggplot(aes(x = total_correctness)) +
-        geom_histogram(binwidth = 1)
-}
-```
-
 ```{r}
 path_data <- here("Data", "Processed")
 ```
