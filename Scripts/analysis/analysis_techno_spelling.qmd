@@ -8,6 +8,7 @@ format: html
 ```{r}
 library(tidyverse)
 library(here)
+library(easystats)
 ```
 
 ```{r}
@@ -62,4 +63,14 @@ Each participant should have 1 observation per condition. Looks good.
 ```{r}
 data_spelling |>
     count(participant_id, condition)
+```
+
+## Missing data
+
+### Check for missing data
+
+No missing data
+```{r}
+data_spelling |>
+    summarise_all(~ sum(is.na(.)))
 ```
