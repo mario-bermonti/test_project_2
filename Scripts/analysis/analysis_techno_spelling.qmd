@@ -27,9 +27,10 @@ data_tech <- read_csv(here(path_data, "data_pc_participant_level.csv"))
 head(data_tech)
 ```
 
-## Merge data
+## Prepare data
+### Merge data
 
-### Adds key to id condition
+#### Adds key to id condition
 
 We add a column identifying the modality of the spelling measure to 
 differentiate the condition after merging.
@@ -44,14 +45,14 @@ data_tech <- data_tech |>
 str(data_tech)
 ```
 
-### merge data
+#### merge data
 
 ```{r}
 data_spelling <- bind_rows(data_paper, data_tech)
 data_spelling
 ```
 
-### Check data
+#### Check data
 
 There should be 2 obs per participant. Looks good.
 ```{r}
@@ -65,9 +66,9 @@ data_spelling |>
     count(participant_id, condition)
 ```
 
-## Missing data
+### Missing data
 
-### Check for missing data
+#### Check for missing data
 
 No missing data
 ```{r}
@@ -75,7 +76,7 @@ data_spelling |>
     summarise_all(~ sum(is.na(.)))
 ```
 
-## Convert variables to correct type
+### Convert variables to correct type
 
 ```{r}
 data_spelling <- data_spelling |>
@@ -84,3 +85,10 @@ data_spelling <- data_spelling |>
 data_spelling |>
     str()
 ```
+
+## Analysis
+### EDA
+#### Univariate
+#### Bivariate
+### Inferential
+
