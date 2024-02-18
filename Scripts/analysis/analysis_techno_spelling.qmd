@@ -96,17 +96,17 @@ data_spelling |>
 ##### All data
 ```{r}
 data_spelling |>
-    viz_hist()
+    ggplot(aes(x = total_correctness)) +
+    geom_histogram(binwidth = 1)
 ```
 
-##### Tech condition
+##### Subdivide by condition
 ```{r}
 data_spelling |>
-    filter(condition == 'tech') |>
-    viz_hist()
+    ggplot(aes(x = total_correctness, fill = condition)) +
+    geom_histogram(binwidth = 1)
 ```
 
-##### paper condition
 ```{r}
 data_spelling |>
     filter(condition == 'paper') |>
