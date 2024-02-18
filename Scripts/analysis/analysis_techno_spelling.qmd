@@ -52,13 +52,13 @@ data_spelling
 
 ### Check data
 
-Should have 2 obs per participant
+There should be 2 obs per participant. Looks good.
 ```{r}
 data_spelling |>
     count(participant_id)
 ```
 
-Each participant should have 1 observation per condition
+Each participant should have 1 observation per condition. Looks good.
 ```{r}
 data_spelling |>
     count(participant_id, condition)
