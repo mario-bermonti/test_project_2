@@ -124,3 +124,13 @@ data_spelling |>
 
 ### Inferential
 
+#### Traditional model (t-test)
+```{r}
+basic_model <- t.test(
+    total_correctness ~ condition,
+    data = data_spelling,
+    paired = TRUE
+)
+
+basic_model
+```
