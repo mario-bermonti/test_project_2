@@ -116,5 +116,11 @@ data_spelling |>
     geom_boxplot()
 ```
 
+```{r}
+data_spelling |>
+    ggplot(aes(x = condition, y = total_correctness)) +
+    geom_violin()
+```
+
 ### Inferential
 
