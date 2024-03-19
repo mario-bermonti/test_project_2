@@ -147,4 +147,41 @@ hedges_g(
 )
 ```
 
+#### Check assumptions
+
+##### Normal distribution of differences
+
+Prepare data and calculate differences in score by conditions
+```{r}
+data_spelling_wide <- data_spelling |>
+    pivot_wider(
+        names_from = condition,
+        values_from = total_correctness
+    )
+
+data_spelling_wide <- data_spelling_wide |>
+    mutate(
+        diffs = paper - tech
+    )
+```
+
+Visualize distributions
+
+Histogram of differences
+
+```{r}
+data_spelling_wide |>
+    ggplot(aes(x = diffs)) +
+    geom_histogram(binwidth = 1)
+```
+
+Q-Q plots
+```{r}
+ggplot(data_spelling_wide, aes(sample = diffs)) +
+    geom_qq() +
+    geom_abline(
+        intercept = mean(data_spelling_wide$diffs),
+        slope = sd(data_spelling_wide$diffs),
+        color = "red"
+    )
 ```
