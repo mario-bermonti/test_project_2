@@ -135,5 +135,6 @@ basic_model <- t.test(
     paired = TRUE
 )
 
-basic_model
+detailed_model <- basic_model |> 
+    parameters() 
 ```
