@@ -112,9 +112,11 @@ data_spelling |>
 
 #### Bivariate
 ```{r}
-data_spelling |>
+viz_box <- data_spelling |>
     ggplot(aes(x = condition, y = total_correctness)) +
     geom_boxplot()
+
+viz_box
 ```
 
 ```{r}
