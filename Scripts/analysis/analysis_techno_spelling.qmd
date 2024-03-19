@@ -138,3 +138,12 @@ basic_model <- t.test(
 detailed_model <- basic_model |> 
     parameters() 
 ```
+
+```{r}
+hedges_g(
+    total_correctness ~ condition,
+    data = data_spelling
+)
+```
+
+```
